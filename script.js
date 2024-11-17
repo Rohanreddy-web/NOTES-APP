@@ -2,7 +2,7 @@ let input = document.querySelector(".search");
 let cont = document.getElementsByClassName("cont")[0];
 let textarea = document.getElementById("floatingTextarea");
 
-let data_array = JSON.parse(localStorage.getItem("Notes")) || []; // Initialize from localStorage or as an empty array
+let data_array = JSON.parse(localStorage.getItem("Notes"))
 data_array.forEach((value) => {
     creatingdiv(value);
 });
