@@ -73,5 +73,4 @@ function Takingdata() {
     localStorage.setItem("Notes", JSON.stringify(data_array));
     creatingdiv(object);
 }
-
 add.addEventListener("click", Takingdata);
