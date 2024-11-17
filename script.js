@@ -1,7 +1,6 @@
 let input = document.querySelector(".search");
 let cont = document.getElementsByClassName("cont")[0];
 let textarea = document.getElementById("floatingTextarea");
-
 let data_array = JSON.parse(localStorage.getItem("Notes"))
 data_array.forEach((value) => {
     creatingdiv(value);
@@ -40,14 +39,15 @@ function creatingdiv(data) {
             </div>
             <div class="card-footer text-body-secondary"></div>
         </div>`;
-    
     cont.append(div);
     textarea.value = " ";
 
     // Delete function
     div.querySelector(".del").addEventListener("click", () => {
         div.remove();
-        data_array = data_array.filter((value) => value.message !== data.message);
+        data_array = data_array.filter((value) =>{ 
+        return value.message !== data.message
+    });
         localStorage.setItem("Notes", JSON.stringify(data_array));
     });
 
