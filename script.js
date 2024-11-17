@@ -45,7 +45,7 @@ function creatingdiv(data) {
     div.querySelector(".del").addEventListener("click", ()=>{
         div.remove();
         data_array= data_array.filter((value)=>{
-            return value.message!==div.querySelector(".card-text").innerHTML
+            return value.message!==data.message
         })
         localStorage.setItem("Notes", JSON.stringify(data_array));
     })
