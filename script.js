@@ -1,11 +1,6 @@
 let input = document.querySelector(".search");
 let cont = document.getElementsByClassName("cont")[0];
 let textarea = document.getElementById("floatingTextarea");
-let data_array = JSON.parse(localStorage.getItem("Notes"))
-data_array.forEach((value) => {
-    creatingdiv(value);
-});
-
 input.addEventListener("input", (e) => {
     let cards = document.querySelectorAll(".card");
     let searchitem = e.target.value.toLowerCase();
@@ -19,9 +14,11 @@ input.addEventListener("input", (e) => {
         }
     });
 });
-
 let add = document.getElementById("add");
-
+let data_array = JSON.parse(localStorage.getItem("Notes"))
+data_array.forEach((value) => {
+    creatingdiv(value);
+});
 // Function to create and add a new note element to the DOM
 function creatingdiv(data) {
     let div = document.createElement("div");
@@ -45,8 +42,8 @@ function creatingdiv(data) {
     // Delete function
     div.querySelector(".del").addEventListener("click", () => {
         div.remove();
-        data_array = data_array.filter((value) =>{ 
-        return value.message !== data.message
+        data_array = data_array.filter((value) =>{
+        return value.message !== div.querySelector(".card-text").innerHTML
     });
         localStorage.setItem("Notes", JSON.stringify(data_array));
     });
