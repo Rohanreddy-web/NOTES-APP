@@ -15,7 +15,8 @@ input.addEventListener("input", (e) => {
     });
 });
 let add = document.getElementById("add");
-let data_array = JSON.parse(localStorage.getItem("Notes"))
+let data_array=[]
+data_array = JSON.parse(localStorage.getItem("Notes"))
 data_array.forEach((value) => {
     creatingdiv(value);
 });
